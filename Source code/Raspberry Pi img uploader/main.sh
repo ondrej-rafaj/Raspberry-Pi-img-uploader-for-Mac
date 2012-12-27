@@ -18,7 +18,11 @@ for key in "${!ary[@]}"; do sudo hdiutil unmount "/dev/${ary[$key]}"; done
 
 
 echo ${SUBDRIVESARR[@]}
-dd if=$IMGPATH of=$BSDNAME bs=1m count=100
 
-echo "Data: $BSDNAME - $IMGPATH - $SUBDRIVES - $SUBDRIVESARR!\n"
+#sudo ls "/Users/maxi/"
+dd if=$IMGPATH of=$BSDNAME bs=1m
+
+echo "Command: dd if=$IMGPATH of=$BSDNAME bs=1m\n"
+
+#echo "Data: $BSDNAME - $IMGPATH - $SUBDRIVES - $SUBDRIVESARR!\n"
 echo "----------- Finished! -----------\n"

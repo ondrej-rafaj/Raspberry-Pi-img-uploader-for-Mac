@@ -9,7 +9,6 @@
 #import "IAAppDelegate.h"
 #import <DiskArbitration/DiskArbitration.h>
 #import <Security/Security.h>
-#import "STPrivilegedTask.h"
 #import "NSString+StringTools.h"
 
 
@@ -101,10 +100,10 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
         params = [params stringByAppendingFormat:@" %@", [p stringByReplacingOccurrencesOfString:@" " withString:@"\\\\ "]];
     }
     NSString *script =  [NSString stringWithFormat:@"do shell script \"sh %@%@\" with administrator privileges", path, params];
-    NSLog(@"Script: %@", script);
+    //NSLog(@"Script: %@", script);
     NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
-    if ([appleScript executeAndReturnError:&error]) {
-        NSAppleEventDescriptor *result = [appleScript executeAndReturnError:nil];
+    NSAppleEventDescriptor *result = [appleScript executeAndReturnError:&error];
+    if (result) {
         return [result stringValue];
     }
     else {
