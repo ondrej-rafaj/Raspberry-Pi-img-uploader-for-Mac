@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		548D37A8168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37A7168B9F6E007C4AC2 /* Cocoa.framework */; };
+		548D37B2168B9F6E007C4AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 548D37B0168B9F6E007C4AC2 /* InfoPlist.strings */; };
+		548D37B4168B9F6E007C4AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37B3168B9F6E007C4AC2 /* main.m */; };
+		548D37B8168B9F6E007C4AC2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 548D37B6168B9F6E007C4AC2 /* Credits.rtf */; };
+		548D37BB168B9F6E007C4AC2 /* IAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37BA168B9F6E007C4AC2 /* IAAppDelegate.m */; };
+		548D37BE168B9F6E007C4AC2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548D37BC168B9F6E007C4AC2 /* MainMenu.xib */; };
+		548D37C6168B9F6E007C4AC2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37C5168B9F6E007C4AC2 /* SenTestingKit.framework */; };
+		548D37C7168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37A7168B9F6E007C4AC2 /* Cocoa.framework */; };
+		548D37CF168B9F6E007C4AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 548D37CD168B9F6E007C4AC2 /* InfoPlist.strings */; };
+		548D37D2168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37D1168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m */; };
+		548D37DC168BAEB9007C4AC2 /* DiskArbitration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */; };
+		548D37E0168BB98D007C4AC2 /* NSString+StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		548D37C8168B9F6E007C4AC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 548D379A168B9F6E007C4AC2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 548D37A2168B9F6E007C4AC2;
+			remoteInfo = "Raspberry Pi img uploader";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		548D37A3168B9F6E007C4AC2 /* Raspberry Pi img uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Raspberry Pi img uploader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		548D37A7168B9F6E007C4AC2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		548D37AA168B9F6E007C4AC2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		548D37AB168B9F6E007C4AC2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		548D37AC168B9F6E007C4AC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		548D37AF168B9F6E007C4AC2 /* Raspberry Pi img uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Raspberry Pi img uploader-Info.plist"; sourceTree = "<group>"; };
+		548D37B1168B9F6E007C4AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		548D37B3168B9F6E007C4AC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		548D37B5168B9F6E007C4AC2 /* Raspberry Pi img uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Raspberry Pi img uploader-Prefix.pch"; sourceTree = "<group>"; };
+		548D37B7168B9F6E007C4AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		548D37B9168B9F6E007C4AC2 /* IAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAAppDelegate.h; sourceTree = "<group>"; };
+		548D37BA168B9F6E007C4AC2 /* IAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAAppDelegate.m; sourceTree = "<group>"; };
+		548D37BD168B9F6E007C4AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		548D37C4168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Raspberry Pi img uploaderTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		548D37C5168B9F6E007C4AC2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		548D37CC168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Raspberry Pi img uploaderTests-Info.plist"; sourceTree = "<group>"; };
+		548D37CE168B9F6E007C4AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		548D37D0168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Raspberry_Pi_img_uploaderTests.h; sourceTree = "<group>"; };
+		548D37D1168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Raspberry_Pi_img_uploaderTests.m; sourceTree = "<group>"; };
+		548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = System/Library/Frameworks/DiskArbitration.framework; sourceTree = SDKROOT; };
+		548D37DE168BB98D007C4AC2 /* NSString+StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringTools.h"; sourceTree = "<group>"; };
+		548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringTools.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		548D37A0168B9F6E007C4AC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37DC168BAEB9007C4AC2 /* DiskArbitration.framework in Frameworks */,
+				548D37A8168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		548D37C0168B9F6E007C4AC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37C6168B9F6E007C4AC2 /* SenTestingKit.framework in Frameworks */,
+				548D37C7168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		548D3798168B9F6E007C4AC2 = {
+			isa = PBXGroup;
+			children = (
+				548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */,
+				548D37AD168B9F6E007C4AC2 /* Raspberry Pi img uploader */,
+				548D37CA168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */,
+				548D37A6168B9F6E007C4AC2 /* Frameworks */,
+				548D37A4168B9F6E007C4AC2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		548D37A4168B9F6E007C4AC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				548D37A3168B9F6E007C4AC2 /* Raspberry Pi img uploader.app */,
+				548D37C4168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		548D37A6168B9F6E007C4AC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				548D37A7168B9F6E007C4AC2 /* Cocoa.framework */,
+				548D37C5168B9F6E007C4AC2 /* SenTestingKit.framework */,
+				548D37A9168B9F6E007C4AC2 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		548D37A9168B9F6E007C4AC2 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				548D37AA168B9F6E007C4AC2 /* AppKit.framework */,
+				548D37AB168B9F6E007C4AC2 /* CoreData.framework */,
+				548D37AC168B9F6E007C4AC2 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		548D37AD168B9F6E007C4AC2 /* Raspberry Pi img uploader */ = {
+			isa = PBXGroup;
+			children = (
+				548D37DD168BB967007C4AC2 /* Categories */,
+				548D37B9168B9F6E007C4AC2 /* IAAppDelegate.h */,
+				548D37BA168B9F6E007C4AC2 /* IAAppDelegate.m */,
+				548D37AE168B9F6E007C4AC2 /* Supporting Files */,
+			);
+			path = "Raspberry Pi img uploader";
+			sourceTree = "<group>";
+		};
+		548D37AE168B9F6E007C4AC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				548D37BC168B9F6E007C4AC2 /* MainMenu.xib */,
+				548D37AF168B9F6E007C4AC2 /* Raspberry Pi img uploader-Info.plist */,
+				548D37B0168B9F6E007C4AC2 /* InfoPlist.strings */,
+				548D37B3168B9F6E007C4AC2 /* main.m */,
+				548D37B5168B9F6E007C4AC2 /* Raspberry Pi img uploader-Prefix.pch */,
+				548D37B6168B9F6E007C4AC2 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		548D37CA168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				548D37D0168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.h */,
+				548D37D1168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m */,
+				548D37CB168B9F6E007C4AC2 /* Supporting Files */,
+			);
+			path = "Raspberry Pi img uploaderTests";
+			sourceTree = "<group>";
+		};
+		548D37CB168B9F6E007C4AC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				548D37CC168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests-Info.plist */,
+				548D37CD168B9F6E007C4AC2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		548D37DD168BB967007C4AC2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				548D37DE168BB98D007C4AC2 /* NSString+StringTools.h */,
+				548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		548D37A2168B9F6E007C4AC2 /* Raspberry Pi img uploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 548D37D5168B9F6E007C4AC2 /* Build configuration list for PBXNativeTarget "Raspberry Pi img uploader" */;
+			buildPhases = (
+				548D379F168B9F6E007C4AC2 /* Sources */,
+				548D37A0168B9F6E007C4AC2 /* Frameworks */,
+				548D37A1168B9F6E007C4AC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Raspberry Pi img uploader";
+			productName = "Raspberry Pi img uploader";
+			productReference = 548D37A3168B9F6E007C4AC2 /* Raspberry Pi img uploader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		548D37C3168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 548D37D8168B9F6E007C4AC2 /* Build configuration list for PBXNativeTarget "Raspberry Pi img uploaderTests" */;
+			buildPhases = (
+				548D37BF168B9F6E007C4AC2 /* Sources */,
+				548D37C0168B9F6E007C4AC2 /* Frameworks */,
+				548D37C1168B9F6E007C4AC2 /* Resources */,
+				548D37C2168B9F6E007C4AC2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				548D37C9168B9F6E007C4AC2 /* PBXTargetDependency */,
+			);
+			name = "Raspberry Pi img uploaderTests";
+			productName = "Raspberry Pi img uploaderTests";
+			productReference = 548D37C4168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		548D379A168B9F6E007C4AC2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IA;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Fuerte Innovations";
+			};
+			buildConfigurationList = 548D379D168B9F6E007C4AC2 /* Build configuration list for PBXProject "Raspberry Pi img uploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 548D3798168B9F6E007C4AC2;
+			productRefGroup = 548D37A4168B9F6E007C4AC2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				548D37A2168B9F6E007C4AC2 /* Raspberry Pi img uploader */,
+				548D37C3168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		548D37A1168B9F6E007C4AC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37B2168B9F6E007C4AC2 /* InfoPlist.strings in Resources */,
+				548D37B8168B9F6E007C4AC2 /* Credits.rtf in Resources */,
+				548D37BE168B9F6E007C4AC2 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		548D37C1168B9F6E007C4AC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37CF168B9F6E007C4AC2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		548D37C2168B9F6E007C4AC2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		548D379F168B9F6E007C4AC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37B4168B9F6E007C4AC2 /* main.m in Sources */,
+				548D37BB168B9F6E007C4AC2 /* IAAppDelegate.m in Sources */,
+				548D37E0168BB98D007C4AC2 /* NSString+StringTools.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		548D37BF168B9F6E007C4AC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				548D37D2168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		548D37C9168B9F6E007C4AC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 548D37A2168B9F6E007C4AC2 /* Raspberry Pi img uploader */;
+			targetProxy = 548D37C8168B9F6E007C4AC2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		548D37B0168B9F6E007C4AC2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				548D37B1168B9F6E007C4AC2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		548D37B6168B9F6E007C4AC2 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				548D37B7168B9F6E007C4AC2 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		548D37BC168B9F6E007C4AC2 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				548D37BD168B9F6E007C4AC2 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		548D37CD168B9F6E007C4AC2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				548D37CE168B9F6E007C4AC2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		548D37D3168B9F6E007C4AC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		548D37D4168B9F6E007C4AC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		548D37D6168B9F6E007C4AC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raspberry Pi img uploader/Raspberry Pi img uploader-Prefix.pch";
+				INFOPLIST_FILE = "Raspberry Pi img uploader/Raspberry Pi img uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		548D37D7168B9F6E007C4AC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raspberry Pi img uploader/Raspberry Pi img uploader-Prefix.pch";
+				INFOPLIST_FILE = "Raspberry Pi img uploader/Raspberry Pi img uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		548D37D9168B9F6E007C4AC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Raspberry Pi img uploader.app/Contents/MacOS/Raspberry Pi img uploader";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raspberry Pi img uploader/Raspberry Pi img uploader-Prefix.pch";
+				INFOPLIST_FILE = "Raspberry Pi img uploaderTests/Raspberry Pi img uploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		548D37DA168B9F6E007C4AC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Raspberry Pi img uploader.app/Contents/MacOS/Raspberry Pi img uploader";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Raspberry Pi img uploader/Raspberry Pi img uploader-Prefix.pch";
+				INFOPLIST_FILE = "Raspberry Pi img uploaderTests/Raspberry Pi img uploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		548D379D168B9F6E007C4AC2 /* Build configuration list for PBXProject "Raspberry Pi img uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				548D37D3168B9F6E007C4AC2 /* Debug */,
+				548D37D4168B9F6E007C4AC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		548D37D5168B9F6E007C4AC2 /* Build configuration list for PBXNativeTarget "Raspberry Pi img uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				548D37D6168B9F6E007C4AC2 /* Debug */,
+				548D37D7168B9F6E007C4AC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		548D37D8168B9F6E007C4AC2 /* Build configuration list for PBXNativeTarget "Raspberry Pi img uploaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				548D37D9168B9F6E007C4AC2 /* Debug */,
+				548D37DA168B9F6E007C4AC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 548D379A168B9F6E007C4AC2 /* Project object */;
+}
