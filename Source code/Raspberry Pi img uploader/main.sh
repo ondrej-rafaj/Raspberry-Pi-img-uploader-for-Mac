@@ -7,8 +7,7 @@
 #  Copyright (c) 2012 Fuerte Innovations. All rights reserved.
 
 
-echo "Starting"
-exit
+echo "\n----------- Starting -----------"
 
 BSDNAME="/dev/$1"
 IMGPATH="$2"
@@ -19,7 +18,7 @@ for key in "${!ary[@]}"; do sudo hdiutil unmount "/dev/${ary[$key]}"; done
 
 
 echo ${SUBDRIVESARR[@]}
+dd if=$IMGPATH of=$BSDNAME bs=1m count=100
 
-sudo dd if=/Users/maxi/Projects/RaspBerry\ Pi/RasPiWrite-master/Gingerbread+EthernetManager.img of=/dev/disk1 bs=1m count=100
-
-echo "Data: $BSDNAME - $IMGPATH - $SUBDRIVES - $SUBDRIVESARR!"
+echo "Data: $BSDNAME - $IMGPATH - $SUBDRIVES - $SUBDRIVESARR!\n"
+echo "----------- Finished! -----------\n"

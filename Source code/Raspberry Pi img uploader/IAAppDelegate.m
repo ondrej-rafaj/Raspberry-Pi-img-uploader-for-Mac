@@ -62,6 +62,8 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 
 @property (nonatomic) BOOL isOneDriveSelected;
 
+@property (nonatomic) NSDate *startProcessTime;
+
 
 - (void)validateForStartButton;
 
@@ -93,15 +95,20 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 
 - (NSString *)executeFile:(NSString *)file withParameters:(NSArray *)arr {
     NSDictionary *error = [NSDictionary new];
-    NSString *script =  @"do shell script \"ls\" with administrator privileges";
+    NSString *path = [[[NSBundle mainBundle] pathForResource:file ofType:@"sh"] stringByReplacingOccurrencesOfString:@" " withString:@"\\\\ "];
+    NSString *params = @"";
+    for (NSString *p in arr) {
+        params = [params stringByAppendingFormat:@" %@", [p stringByReplacingOccurrencesOfString:@" " withString:@"\\\\ "]];
+    }
+    NSString *script =  [NSString stringWithFormat:@"do shell script \"sh %@%@\" with administrator privileges", path, params];
+    NSLog(@"Script: %@", script);
     NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
     if ([appleScript executeAndReturnError:&error]) {
-        NSLog(@"success!");
-        NSAppleEventDescriptor *theResult = [appleScript executeAndReturnError:nil];
-        NSLog(@"Smile: %@", [theResult stringValue]);
+        NSAppleEventDescriptor *result = [appleScript executeAndReturnError:nil];
+        return [result stringValue];
     }
     else {
-        NSLog(@"failure!");
+        [self logEvent:@"Error" withDetail:[error objectForKey:@"NSAppleScriptErrorMessage"]];
     }
     return nil;
     
@@ -120,20 +127,26 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 }
 
 - (void)executeMainProcess {
-    NSString *bsdName = [_selectedDrive objectForKey:@"DAMediaBSDName"];
-    NSMutableArray *unmounts = [NSMutableArray array];
-    for (NSString *s in _allDrivesBSDNamesAvailable) {
-        if ([s containsString:bsdName]) [unmounts addObject:s];
+    @autoreleasepool {
+        NSString *bsdName = [_selectedDrive objectForKey:@"DAMediaBSDName"];
+        NSMutableArray *unmounts = [NSMutableArray array];
+        for (NSString *s in _allDrivesBSDNamesAvailable) {
+            if ([s containsString:bsdName]) [unmounts addObject:s];
+        }
+        NSString *unmountString = [unmounts componentsJoinedByString:@":"];
+        NSArray *arr = [NSArray arrayWithObjects:bsdName, _pathField.stringValue, unmountString, nil];
+        NSString *data = [self executeFile:@"main" withParameters:arr];
+        [self performSelectorOnMainThread:@selector(logEvent:) withObject:data waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(processFinished) withObject:nil waitUntilDone:NO];
+        [_valueReadingInvokationTimer invalidate];
+        _valueReadingInvokationTimer = nil;
     }
-    NSString *unmountString = [unmounts componentsJoinedByString:@":"];
-    NSArray *arr = [NSArray arrayWithObjects:bsdName, _pathField.stringValue, unmountString, nil];
-    NSString *data = [self executeFile:@"main" withParameters:arr];
-    [self logEvent:data];
 }
 
-- (void)executeTimer {
-    // 
-    //_valueReadingInvokationTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(aaaaaaaa) userInfo:nil repeats:YES];
+- (void)startExecutingMainProcessOnBackground {
+    @autoreleasepool {
+        [self performSelectorInBackground:@selector(executeMainProcess) withObject:nil];
+    }
 }
 
 - (NSInteger)getProcessId {
@@ -158,7 +171,32 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
     return nil;
 }
 
+- (NSString *)elapsedTimeLabelText {
+    NSTimeInterval elapsedTime = [_startProcessTime timeIntervalSinceNow];
+    div_t h = div(elapsedTime, 3600);
+    int hours = (h.quot * -1);
+    div_t m = div(h.rem, 60);
+    int minutes = (m.quot * -1);
+    int seconds = (m.rem * -1);
+    NSString *timeLabelString = [NSString stringWithFormat:@"%d hours %d min %d sec", hours, minutes, seconds];
+    return timeLabelString;
+}
+
 #pragma mark Runtime methods
+
+- (void)processFinished {
+    NSString *finishedLine = [NSString stringWithFormat:@"Finished: %@", [self elapsedTimeLabelText]];
+    [_elapsedTimeLabel setStringValue:finishedLine];
+    
+    [_spinningIndicator stopAnimation:nil];
+    [_browseButton setEnabled:YES];
+    [_pathField setEnabled:YES];
+    [_deviceList setEnabled:YES];
+    
+    _startProcessTime = nil;
+    
+    [self validateForStartButton];
+}
 
 - (void)disableDiskLoadingLoop {
     sShouldExit = 1;
@@ -192,10 +230,6 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
     @autoreleasepool {
         [self performSelectorInBackground:@selector(checkForDevicesOnBackground) withObject:nil];
     }
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [NSThread detachNewThreadSelector:@selector(startCheckingForDevicesOnBackground) toTarget:self withObject:nil];
 }
 
 - (BOOL)isDriveInfoValid:(NSDictionary *)driveInfo {
@@ -278,10 +312,31 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
     BOOL ok = YES;
     if (!_selectedDrive) ok = NO;
     if ([_pathField.stringValue length] < 2) ok = NO;
-    if (ok) {
+    if (ok && !_startProcessTime) {
         [_startButton setEnabled:YES];
         [self logEvent:@"Uploader is ready!"];
     }
+}
+
+//- (void)updateTimer {
+//    _elapsedTime++;
+//    [_elapsedTimeLabel setStringValue:[NSString stringWithFormat:@"%.0f", _elapsedTime]];
+//}
+
+- (void)updateElapsedTimeDisplay:(NSTimer *)timer {
+    NSString *timeLabelString = [self elapsedTimeLabelText];
+    [_elapsedTimeLabel setStringValue:timeLabelString];
+}
+
+#pragma mark Application delegate methods
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [_elapsedTimeLabel setStringValue:@"00:00:00"];
+    [NSThread detachNewThreadSelector:@selector(startCheckingForDevicesOnBackground) toTarget:self withObject:nil];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 #pragma mark Actions
@@ -308,15 +363,33 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 }
 
 - (IBAction)didPressStartButton:(NSButton *)sender {
-    [self logEvent:@"Start uploading!"];
-    [_progressIndicator setHidden:NO];
-    [_spinningIndicator startAnimation:nil];
-    [_startButton setEnabled:NO];
-    [_browseButton setEnabled:NO];
-    [_pathField setEnabled:NO];
-    [_deviceList setEnabled:NO];
-    
-    [self executeMainProcess];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Warning!\n\nIf you are not sure what you doing, just think twice before you click OK. This app will erase all the content on the target device and will install the new image that you have selected on it! This software is distributed as is. You are on your own responsibility when using it"];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert beginSheetModalForWindow:_window modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+#pragma mark Alert view Delegate methods
+
+- (void)alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci {
+    switch(rc) {
+        case NSAlertFirstButtonReturn:
+            [self logEvent:@"Start uploading!"];
+            //[_progressIndicator setHidden:NO];
+            [_spinningIndicator startAnimation:nil];
+            [_startButton setEnabled:NO];
+            [_browseButton setEnabled:NO];
+            [_pathField setEnabled:NO];
+            [_deviceList setEnabled:NO];
+            
+            _startProcessTime = [NSDate date];
+            _valueReadingInvokationTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateElapsedTimeDisplay:) userInfo:nil repeats:YES];
+            [NSThread detachNewThreadSelector:@selector(startExecutingMainProcessOnBackground) toTarget:self withObject:nil];
+            break;
+        case NSAlertSecondButtonReturn:
+            break;
+    }
 }
 
 #pragma mark Text field delegate methods

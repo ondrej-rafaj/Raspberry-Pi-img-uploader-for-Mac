@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		546126F9168CA75A00C740FB /* Icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 546126F8168CA75A00C740FB /* Icons.icns */; };
 		548D37A8168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37A7168B9F6E007C4AC2 /* Cocoa.framework */; };
 		548D37B2168B9F6E007C4AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 548D37B0168B9F6E007C4AC2 /* InfoPlist.strings */; };
 		548D37B4168B9F6E007C4AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37B3168B9F6E007C4AC2 /* main.m */; };
@@ -22,12 +23,6 @@
 		548D37F3168BED40007C4AC2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37F2168BED40007C4AC2 /* Security.framework */; };
 		548D37F7168BF06A007C4AC2 /* main.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37F6168BEEA7007C4AC2 /* main.sh */; };
 		548D37F8168BF06A007C4AC2 /* main.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37F6168BEEA7007C4AC2 /* main.sh */; };
-		548D37FE168BFCE5007C4AC2 /* timer.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37FD168BFCE5007C4AC2 /* timer.sh */; };
-		548D37FF168BFCE5007C4AC2 /* timer.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37FD168BFCE5007C4AC2 /* timer.sh */; };
-		548D3804168BFEC1007C4AC2 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 548D3801168BFEC1007C4AC2 /* README */; };
-		548D3805168BFEC1007C4AC2 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 548D3801168BFEC1007C4AC2 /* README */; };
-		548D3806168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		548D3807168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		546126F8168CA75A00C740FB /* Icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icons.icns; path = ../Icons.icns; sourceTree = "<group>"; };
 		548D37A3168B9F6E007C4AC2 /* Raspberry Pi img uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Raspberry Pi img uploader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		548D37A7168B9F6E007C4AC2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		548D37AA168B9F6E007C4AC2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,10 +61,6 @@
 		548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringTools.m"; sourceTree = "<group>"; };
 		548D37F2168BED40007C4AC2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		548D37F6168BEEA7007C4AC2 /* main.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = main.sh; sourceTree = "<group>"; };
-		548D37FD168BFCE5007C4AC2 /* timer.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = timer.sh; sourceTree = "<group>"; };
-		548D3801168BFEC1007C4AC2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		548D3802168BFEC1007C4AC2 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
-		548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +142,7 @@
 		548D37AE168B9F6E007C4AC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				546126F8168CA75A00C740FB /* Icons.icns */,
 				548D37F5168BEE82007C4AC2 /* Scripts */,
 				548D37BC168B9F6E007C4AC2 /* MainMenu.xib */,
 				548D37AF168B9F6E007C4AC2 /* Raspberry Pi img uploader-Info.plist */,
@@ -194,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				548D37F6168BEEA7007C4AC2 /* main.sh */,
-				548D37FD168BFCE5007C4AC2 /* timer.sh */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -202,9 +194,6 @@
 		548D3800168BFEC1007C4AC2 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
-				548D3801168BFEC1007C4AC2 /* README */,
-				548D3802168BFEC1007C4AC2 /* STPrivilegedTask.h */,
-				548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */,
 			);
 			path = Thirdparty;
 			sourceTree = SOURCE_ROOT;
@@ -285,8 +274,7 @@
 				548D37B8168B9F6E007C4AC2 /* Credits.rtf in Resources */,
 				548D37BE168B9F6E007C4AC2 /* MainMenu.xib in Resources */,
 				548D37F7168BF06A007C4AC2 /* main.sh in Resources */,
-				548D37FE168BFCE5007C4AC2 /* timer.sh in Resources */,
-				548D3804168BFEC1007C4AC2 /* README in Resources */,
+				546126F9168CA75A00C740FB /* Icons.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,8 +284,6 @@
 			files = (
 				548D37CF168B9F6E007C4AC2 /* InfoPlist.strings in Resources */,
 				548D37F8168BF06A007C4AC2 /* main.sh in Resources */,
-				548D37FF168BFCE5007C4AC2 /* timer.sh in Resources */,
-				548D3805168BFEC1007C4AC2 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +313,6 @@
 				548D37B4168B9F6E007C4AC2 /* main.m in Sources */,
 				548D37BB168B9F6E007C4AC2 /* IAAppDelegate.m in Sources */,
 				548D37E0168BB98D007C4AC2 /* NSString+StringTools.m in Sources */,
-				548D3806168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				548D37D2168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m in Sources */,
-				548D3807168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

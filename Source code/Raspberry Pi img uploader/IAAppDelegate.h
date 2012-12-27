@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface IAAppDelegate : NSObject <NSApplicationDelegate, NSOpenSavePanelDelegate, NSComboBoxDataSource, NSComboBoxDelegate, NSTextFieldDelegate, NSTextViewDelegate>
+@interface IAAppDelegate : NSObject <NSApplicationDelegate, NSOpenSavePanelDelegate, NSComboBoxDataSource, NSComboBoxDelegate, NSTextFieldDelegate, NSTextViewDelegate, NSAlertDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
 @property (nonatomic, strong) IBOutlet NSTextField *pathField;
 @property (nonatomic, strong) IBOutlet NSComboBox *deviceList;
+@property (nonatomic, strong) IBOutlet NSTextField *elapsedTimeLabel;
 @property (nonatomic, strong) IBOutlet NSLevelIndicator *progressIndicator;
 @property (nonatomic, strong) IBOutlet NSProgressIndicator *spinningIndicator;
 @property (nonatomic, strong) IBOutlet NSButton *browseButton;
