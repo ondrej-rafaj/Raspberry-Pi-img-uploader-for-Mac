@@ -19,6 +19,15 @@
 		548D37D2168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37D1168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m */; };
 		548D37DC168BAEB9007C4AC2 /* DiskArbitration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */; };
 		548D37E0168BB98D007C4AC2 /* NSString+StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */; };
+		548D37F3168BED40007C4AC2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D37F2168BED40007C4AC2 /* Security.framework */; };
+		548D37F7168BF06A007C4AC2 /* main.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37F6168BEEA7007C4AC2 /* main.sh */; };
+		548D37F8168BF06A007C4AC2 /* main.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37F6168BEEA7007C4AC2 /* main.sh */; };
+		548D37FE168BFCE5007C4AC2 /* timer.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37FD168BFCE5007C4AC2 /* timer.sh */; };
+		548D37FF168BFCE5007C4AC2 /* timer.sh in Resources */ = {isa = PBXBuildFile; fileRef = 548D37FD168BFCE5007C4AC2 /* timer.sh */; };
+		548D3804168BFEC1007C4AC2 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 548D3801168BFEC1007C4AC2 /* README */; };
+		548D3805168BFEC1007C4AC2 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 548D3801168BFEC1007C4AC2 /* README */; };
+		548D3806168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		548D3807168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +63,12 @@
 		548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = System/Library/Frameworks/DiskArbitration.framework; sourceTree = SDKROOT; };
 		548D37DE168BB98D007C4AC2 /* NSString+StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringTools.h"; sourceTree = "<group>"; };
 		548D37DF168BB98D007C4AC2 /* NSString+StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringTools.m"; sourceTree = "<group>"; };
+		548D37F2168BED40007C4AC2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		548D37F6168BEEA7007C4AC2 /* main.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = main.sh; sourceTree = "<group>"; };
+		548D37FD168BFCE5007C4AC2 /* timer.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = timer.sh; sourceTree = "<group>"; };
+		548D3801168BFEC1007C4AC2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		548D3802168BFEC1007C4AC2 /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
+		548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548D37F3168BED40007C4AC2 /* Security.framework in Frameworks */,
 				548D37DC168BAEB9007C4AC2 /* DiskArbitration.framework in Frameworks */,
 				548D37A8168B9F6E007C4AC2 /* Cocoa.framework in Frameworks */,
 			);
@@ -81,8 +97,10 @@
 		548D3798168B9F6E007C4AC2 = {
 			isa = PBXGroup;
 			children = (
+				548D37F2168BED40007C4AC2 /* Security.framework */,
 				548D37DB168BAEB9007C4AC2 /* DiskArbitration.framework */,
 				548D37AD168B9F6E007C4AC2 /* Raspberry Pi img uploader */,
+				548D37AE168B9F6E007C4AC2 /* Supporting Files */,
 				548D37CA168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */,
 				548D37A6168B9F6E007C4AC2 /* Frameworks */,
 				548D37A4168B9F6E007C4AC2 /* Products */,
@@ -121,10 +139,10 @@
 		548D37AD168B9F6E007C4AC2 /* Raspberry Pi img uploader */ = {
 			isa = PBXGroup;
 			children = (
+				548D3800168BFEC1007C4AC2 /* Thirdparty */,
 				548D37DD168BB967007C4AC2 /* Categories */,
 				548D37B9168B9F6E007C4AC2 /* IAAppDelegate.h */,
 				548D37BA168B9F6E007C4AC2 /* IAAppDelegate.m */,
-				548D37AE168B9F6E007C4AC2 /* Supporting Files */,
 			);
 			path = "Raspberry Pi img uploader";
 			sourceTree = "<group>";
@@ -132,6 +150,7 @@
 		548D37AE168B9F6E007C4AC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				548D37F5168BEE82007C4AC2 /* Scripts */,
 				548D37BC168B9F6E007C4AC2 /* MainMenu.xib */,
 				548D37AF168B9F6E007C4AC2 /* Raspberry Pi img uploader-Info.plist */,
 				548D37B0168B9F6E007C4AC2 /* InfoPlist.strings */,
@@ -140,6 +159,7 @@
 				548D37B6168B9F6E007C4AC2 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			path = "Raspberry Pi img uploader";
 			sourceTree = "<group>";
 		};
 		548D37CA168B9F6E007C4AC2 /* Raspberry Pi img uploaderTests */ = {
@@ -169,6 +189,25 @@
 			);
 			name = Categories;
 			sourceTree = "<group>";
+		};
+		548D37F5168BEE82007C4AC2 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				548D37F6168BEEA7007C4AC2 /* main.sh */,
+				548D37FD168BFCE5007C4AC2 /* timer.sh */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
+		548D3800168BFEC1007C4AC2 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				548D3801168BFEC1007C4AC2 /* README */,
+				548D3802168BFEC1007C4AC2 /* STPrivilegedTask.h */,
+				548D3803168BFEC1007C4AC2 /* STPrivilegedTask.m */,
+			);
+			path = Thirdparty;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -245,6 +284,9 @@
 				548D37B2168B9F6E007C4AC2 /* InfoPlist.strings in Resources */,
 				548D37B8168B9F6E007C4AC2 /* Credits.rtf in Resources */,
 				548D37BE168B9F6E007C4AC2 /* MainMenu.xib in Resources */,
+				548D37F7168BF06A007C4AC2 /* main.sh in Resources */,
+				548D37FE168BFCE5007C4AC2 /* timer.sh in Resources */,
+				548D3804168BFEC1007C4AC2 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				548D37CF168B9F6E007C4AC2 /* InfoPlist.strings in Resources */,
+				548D37F8168BF06A007C4AC2 /* main.sh in Resources */,
+				548D37FF168BFCE5007C4AC2 /* timer.sh in Resources */,
+				548D3805168BFEC1007C4AC2 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +327,7 @@
 				548D37B4168B9F6E007C4AC2 /* main.m in Sources */,
 				548D37BB168B9F6E007C4AC2 /* IAAppDelegate.m in Sources */,
 				548D37E0168BB98D007C4AC2 /* NSString+StringTools.m in Sources */,
+				548D3806168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548D37D2168B9F6E007C4AC2 /* Raspberry_Pi_img_uploaderTests.m in Sources */,
+				548D3807168BFEC1007C4AC2 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +512,7 @@
 				548D37D7168B9F6E007C4AC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		548D37D8168B9F6E007C4AC2 /* Build configuration list for PBXNativeTarget "Raspberry Pi img uploaderTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +521,7 @@
 				548D37DA168B9F6E007C4AC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,3 @@
+[submodule "Source code/Thirdparty"]
+	path = Source code/Thirdparty
+	url = git://github.com/sveinbjornt/STPrivilegedTask.git

@@ -8,6 +8,8 @@
 
 #import "IAAppDelegate.h"
 #import <DiskArbitration/DiskArbitration.h>
+#import <Security/Security.h>
+#import "STPrivilegedTask.h"
 #import "NSString+StringTools.h"
 
 
@@ -52,8 +54,11 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 
 @property (nonatomic, strong) NSMutableArray *drivesAvailable;
 @property (nonatomic, strong) NSMutableArray *drivesNamesAvailable;
+@property (nonatomic, strong) NSMutableArray *allDrivesBSDNamesAvailable;
 
 @property (nonatomic, strong) NSDictionary *selectedDrive;
+
+@property (nonatomic, strong) NSTimer *valueReadingInvokationTimer;
 
 @property (nonatomic) BOOL isOneDriveSelected;
 
@@ -82,6 +87,75 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
 
 - (void)logEvent:(NSString *)event withDetail:(NSString *)detail {
     [self logEvent:[NSString stringWithFormat:@"%@: %@", event, detail]];
+}
+
+#pragma mark Execution
+
+- (NSString *)executeFile:(NSString *)file withParameters:(NSArray *)arr {
+    NSDictionary *error = [NSDictionary new];
+    NSString *script =  @"do shell script \"ls\" with administrator privileges";
+    NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
+    if ([appleScript executeAndReturnError:&error]) {
+        NSLog(@"success!");
+        NSAppleEventDescriptor *theResult = [appleScript executeAndReturnError:nil];
+        NSLog(@"Smile: %@", [theResult stringValue]);
+    }
+    else {
+        NSLog(@"failure!");
+    }
+    return nil;
+    
+//    NSString *string;
+//    STPrivilegedTask *task = [[STPrivilegedTask alloc] initWithLaunchPath:@"/bin/sh"];
+//    NSMutableArray *newArr = [NSMutableArray arrayWithArray:arr];
+//    [newArr insertObject:[[NSBundle mainBundle] pathForResource:file ofType:@"sh"] atIndex:0];
+//    [task setArguments:newArr];
+//    
+//    [task launch];
+//    NSFileHandle *outputFile = [task outputFileHandle];
+//    
+//    NSData *data = [outputFile readDataToEndOfFile];
+//    string = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+//    return string;
+}
+
+- (void)executeMainProcess {
+    NSString *bsdName = [_selectedDrive objectForKey:@"DAMediaBSDName"];
+    NSMutableArray *unmounts = [NSMutableArray array];
+    for (NSString *s in _allDrivesBSDNamesAvailable) {
+        if ([s containsString:bsdName]) [unmounts addObject:s];
+    }
+    NSString *unmountString = [unmounts componentsJoinedByString:@":"];
+    NSArray *arr = [NSArray arrayWithObjects:bsdName, _pathField.stringValue, unmountString, nil];
+    NSString *data = [self executeFile:@"main" withParameters:arr];
+    [self logEvent:data];
+}
+
+- (void)executeTimer {
+    // 
+    //_valueReadingInvokationTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(aaaaaaaa) userInfo:nil repeats:YES];
+}
+
+- (NSInteger)getProcessId {
+    // sudo ps
+    /*
+     Ondrejs-Maxi-Mini:RasPiWrite-master maxi$ sudo ps
+     PID TTY           TIME CMD
+     380 ttys000    0:00.04 login -pfl maxi /bin/bash -c exec -la bash /bin/bash
+     8009 ttys000    0:00.01 sudo dd if=/Users/maxi/Projects/RaspBerry Pi/RasPiWrite-master/Gingerbread+EthernetManager.img of=/dev/disk1 bs=1m count=100
+     8010 ttys000    0:00.45 dd if=/Users/maxi/Projects/RaspBerry Pi/RasPiWrite-master/Gingerbread+EthernetManager.img of=/dev/disk1 bs=1m count=100
+     1350 ttys002    0:00.05 login -pfl maxi /bin/bash -c exec -la bash /bin/bash
+     8012 ttys002    0:00.01 sudo ps
+     8013 ttys002    0:00.02 ps
+    //*/
+    
+    return 0;
+}
+
+- (NSDictionary *)progressInfo {
+    // sudo kill -INFO 8070
+    // 47185920 bytes transferred in 34.425458 secs (1370669 bytes/sec)
+    return nil;
 }
 
 #pragma mark Runtime methods
@@ -162,6 +236,10 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
         }
         [self logEvent:@"New drive available" withDetail:name];
     }
+    else {
+        if (!_allDrivesBSDNamesAvailable) _allDrivesBSDNamesAvailable = [NSMutableArray array];
+        if ([deviceInfo objectForKey:@"DAMediaBSDName"]) [_allDrivesBSDNamesAvailable addObject:[NSString stringWithFormat:@"%@", [deviceInfo objectForKey:@"DAMediaBSDName"]]];
+    }
     [self validateForStartButton];
 }
 
@@ -237,6 +315,8 @@ static void OnDiskDisappeared(DADiskRef disk, void *__attribute__((__unused__)) 
     [_browseButton setEnabled:NO];
     [_pathField setEnabled:NO];
     [_deviceList setEnabled:NO];
+    
+    [self executeMainProcess];
 }
 
 #pragma mark Text field delegate methods

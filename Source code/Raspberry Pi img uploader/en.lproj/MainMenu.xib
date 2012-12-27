@@ -151,7 +151,7 @@
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="669638698">
-								<int key="NSCellFlags">603979776</int>
+								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Start</string>
 								<object class="NSFont" key="NSSupport" id="622815933">
